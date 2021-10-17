@@ -1,0 +1,43 @@
+[{
+    "id": 1,
+    "name": "Recovery from Addiction",
+    "image": "https://i.postimg.cc/D0FVtJG7/addiction.jpg",
+    "description": "Addiction is a psychological and physical inability to stop consuming a chemical, drug, activity, or substance, even though it is causing psychological and physical harm.",
+    "effectiveness": "Addiction is a psychological and physical inability to stop consuming a chemical, drug, activity, or substance, even though it is causing psychological and physical harm.",
+    "available_day": "Sat, Sun, Wed"
+  }, {
+    "id": 2,
+    "name": "Counseling",
+    "image": "https://i.postimg.cc/TwnM7qpk/counseling.jpg",
+    "description": "Counseling is a type of talking therapy that allows a person to talk about their problems and feelings in a conditional and dependable environment.\n\n A counselor is trained to listen with empathy (by putting themselves in your shoes). They can help you deal with any negative thoughts and feelings you have. Sometimes the term “Counseling” is used to refer to talking therapies in general, but counseling is also a type of therapy of its own right.",
+    "effectiveness": "Counseling aims to help you deal with and overcome issues that are causing emotional pain or making you feel uncomfortable. It can provide a safe and regular space for you to talk and explore difficult feelings. The counselor is there to support you and respect your views. They won’t usually give advice, will help you to find your own insights into and understanding your problems.",
+    "available_day": "Mon, Thus, Wed"
+  }, {
+    "id": 3,
+    "name": "Detoxification",
+    "image": "https://i.postimg.cc/zXzZ7h5j/detox.jpg",
+    "description": "Detoxification or Detoxication is the physiological or medicinal removal of toxic substances from the human body.\n\nAdditionally, it can refer to the period of withdrawal where organs return to normal phase after long term use of addictive substances.",
+    "effectiveness": "Alcohol Detoxification, Drug Detoxification",
+    "available_day": "Sun, Tue, Fri"
+  }, {
+    "id": 4,
+    "name": "Psychiatric or Mental Disorder",
+    "image": "https://i.postimg.cc/cHyPngXf/mental-disorder.jpg",
+    "description": "It is a behavioral or mental pattern that causes significant distress or impairment of personal functioning. Such features may be persistent, relapsing, and remitting or occur as a single episode.",
+    "effectiveness": "psychotherapy is the use of psychological methods to help a person change behavior or overcome problems in desired ways.\n\nA counselor is trained to listen with empathy (by putting themselves in your shoes). They can help you deal with any negative thoughts and feelings you have. Sometimes the term “Counseling” is used to refer to talking therapies in general, but counseling is also a type of therapy of its own right.\n\nCounseling aims to help you deal with and overcome issues that are causing emotional pain or making you feel uncomfortable. It can provide a safe and regular space for you to talk and explore difficult feelings. The counselor is there to support you and respect your views. They don’t usually give advice, will help you to find your own insights into and understanding your problems.",
+    "available_day": "Thu, Fri, Wed"
+  }, {
+    "id": 5,
+    "name": "Psychotherapy",
+    "image": "https://i.postimg.cc/0y4T9HSW/psychotherapy.jpg",
+    "description": "Psychotherapy is the one kind of mental health treatment that use of psychological methods to help a person change behaviour or overcome problems in desired ways.",
+    "effectiveness": "improvement of individueals well being and mental health.\n\nresolve troublesome behaviours, beliefs, thoughts, emotions.\n\nimprovment of relationship and social skills.",
+    "available_day": "Sat, Mon, Twe"
+  }, {
+    "id": 6,
+    "name": "Social Skill Training",
+    "image": "https://i.postimg.cc/d0bcjStk/social-skill.jpg",
+    "description": "Social skills training is a type of psychotherapy or mental health treatment that works to help people improve their social skills so they can become socially competent. SST is predominantly a behavioral therapy but cognitive therapy that can also be used in some situations to maximize the success of SST. This psychotherapy can be done one-on-one or in a group situation.",
+    "effectiveness": "Social skills training can be very effective if you have self-efficacy. If you are consistent and determined, practice your skills and come back for follow-ups, you are likely to benefit from SST.",
+    "available_day": "Fri, Mon, Wed"
+  }]

@@ -13,7 +13,6 @@ const RegisterUser = () => {
     const handleGoogleLogin = () => {
         googleSignIn()
             .then((result) => {
-                console.log(result.user);
                 history.push(redirect_uri)
             })
     }
@@ -38,7 +37,7 @@ const RegisterUser = () => {
                     <input onBlur={userNameHandeler} type="text" required className='py-2 px-8 border-2 rounded-md my-2' placeholder='Your Name' />
                     <input onBlur={userEmailHandeler} type="email" required className='py-2 px-8 border-2 rounded-md my-2' placeholder='Enter Your Email' />
                     <input onBlur={userPasswordHandeler} type="password" required className='py-2 px-8 border-2 rounded-md my-2' placeholder='Enter Your Password' />
-                    <input className='border py-1 cursor-pointer px-6 text-xl bg-green-700 text-white rounded-md my-2' type="submit" value="Register" />
+                    <input className='border py-1 cursor-pointer px-6 text-xl bg-blue-700 text-white rounded-md my-2' type="submit" value="Register" />
                     <div className='register-query'><span>Already have a account ? <Link to='/login'>Login Here</Link></span></div>
                 </form>
                 <p>----------Or-----------</p>

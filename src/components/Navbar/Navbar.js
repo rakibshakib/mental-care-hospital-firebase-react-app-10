@@ -55,17 +55,17 @@ const Navbar = () => {
                 <div className="mobile-nav">
                     <button onClick={handleToggle} className='text-2xl toggle text-white mx-12 py-5'><FaBars /></button>
                     <div className={`flex flex-col justify-center items-center text-white font-medium responsive-nav  ${toggle ? 'show-navs' : 'hide-navs'}`}>
-                        <NavLink className='nav-items py-3 px-2 transition delay-75 duration-300 ease-in-out' to="/"><span>Home</span></NavLink>
-                        <NavLink className=' nav-items py-3 px-2 transition delay-75 duration-300 ease-in-out' to="/booking"><span>Apointment</span></NavLink>
-                        <NavLink className='nav-items py-3 px-2 transition delay-75 duration-300 ease-in-out' to="/about"><span>About</span></NavLink>
-                        <NavLink className='nav-items py-3 px-2 transition delay-75 duration-300 ease-in-out ' to="/contact"><span>Contact</span></NavLink>
+                        <NavLink className='nav-items py-2 px-2 transition delay-75 duration-300 ease-in-out' to="/"><span>Home</span></NavLink>
+                        <NavLink className=' nav-items py-2 px-2 transition delay-75 duration-300 ease-in-out' to="/booking"><span>Apointment</span></NavLink>
+                        <NavLink className='nav-items py-2 px-2 transition delay-75 duration-300 ease-in-out' to="/about"><span>About</span></NavLink>
+                        <NavLink className='nav-items py-2 px-2 transition delay-75 duration-300 ease-in-out ' to="/contact"><span>Contact</span></NavLink>
                         {
-                            user?.email && <p className='my-3 font-medium border-b-2 px-2 text-center'>{user.displayName}</p>
+                            user?.email && <p className='my-2 font-medium border-b-2 px-2 text-center'>{user.displayName}</p>
                         }
                         {
                             user.email ? <button onClick={logOutUser} className='nav-items rounded-md px-2 mb-3 transition delay-75 duration-300 ease-in-ou'><BiLogOutCircle className='inline-block' /> Logout</button>
                                 :
-                                <NavLink className='nav-items py-3 px-2  mb-5 transition delay-75 duration-300 ease-in-ou' to="/login"><AiOutlineLogin className='inline-block' /> Login</NavLink>
+                                <NavLink className='nav-items py-2 px-2  mb-5 transition delay-75 duration-300 ease-in-ou' to="/login"><AiOutlineLogin className='inline-block' /> Login</NavLink>
                         }
 
                     </div>

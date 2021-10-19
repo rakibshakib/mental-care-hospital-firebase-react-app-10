@@ -4,11 +4,12 @@ import { FcGoogle } from "react-icons/fc";
 import useAuth from '../../hooks/useAuth';
 
 const RegisterUser = () => {
+    // user registration from usehook data
     const { googleSignIn, setName, setEmail, setPassword, createUserWithEmailPassword, error } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home'
-
+// redirect user to the page from where he comes after login 
     const handleGoogleLogin = () => {
         googleSignIn()
             .then((result) => {
@@ -25,7 +26,6 @@ const RegisterUser = () => {
     const userNameHandeler = e => {
         setName(e.target.value)
     }
-
     const userRegistrationHandeler = e => {
         e.preventDefault()
         createUserWithEmailPassword();

@@ -4,28 +4,31 @@ import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const LoginUser = () => {
-    const { googleSignIn, setEmail, setPassword, loginWithEmailPassword, error } = useAuth();
+    // yes this is the login section component 
+    // get all login option from hooks 
+    const { googleSignIn, setEmail, setIsloading, setPassword, loginWithEmailPassword, error } = useAuth();
     const location = useLocation();
     const history = useHistory();
-    const redirect_uri = location.state?.from || '/home'
+    const redirect_uri = location.state?.from || '/home' // condition route setting 
 
-    console.log(setEmail);
+    // google pop up signin
     const handleGoogleLogin = () => {
         googleSignIn()
             .then((result) => {
                 history.push(redirect_uri)
-            })
+            }).finally(() => setIsloading(false))
     }
+    // get email and password 
     const userEmailHandeler = e => {
         setEmail(e.target.value)
     }
     const userPasswordHandeler = e => {
         setPassword(e.target.value)
     }
+    // login with email and password handeler 
     const emailPasswordloginHandeler = e => {
         e.preventDefault()
-        loginWithEmailPassword()
-
+        loginWithEmailPassword() 
     }
     return (
         <div className='my-8 border-2 md:w-3/4 mx-auto p-5'>
@@ -34,8 +37,8 @@ const LoginUser = () => {
                 <form onSubmit={emailPasswordloginHandeler} action="" className='flex flex-col justify-between items-center'>
                     <input required onBlur={userEmailHandeler} className='py-2 px-8 border-2 rounded-md my-2' type="email" placeholder='Enter Your Email' />
                     <input required onBlur={userPasswordHandeler} className='py-2 px-8 border-2 rounded-md my-2' type="password" placeholder='Enter Your Password' />
-                    <input className='border py-1 cursor-pointer px-6 text-xl bg-green-700 text-white rounded-md my-2' type="submit" value="Login" />
-                    <div className='register-query'><span>Dont have a account ? <Link className='text-green-700' to='/register'>Register Here</Link></span></div>
+                    <input className='border py-1 cursor-pointer px-6 text-xl bg-blue-700 text-white rounded-md my-2' type="submit" value="Login" />
+                    <div className='register-query'><span>Dont have a account ? <Link className='text-blue-700' to='/register'>Register Here</Link></span></div>
                 </form>
                 <p>----------Or-----------</p>
                 <button onClick={handleGoogleLogin} className='cursor-pointer flex flex-row justify-between items-center my-5 border-2 rounded-md py-2 px-5'> <FcGoogle /> <span className='ml-2'>Login With Google</span></button>

@@ -4,28 +4,31 @@ import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signO
 
 
 initializeFireBase();
-
+// all firebase hoooks settng is here 
 const useFireBase = () => {
     const [name, setName] = useState();
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [email, setEmail] = useState();
-    const [password, setPassword] = useState()
+    const [password, setPassword] = useState();
+    const [isLoading, setIsloading] = useState(true);
 
     const auth = getAuth();
     const googleProvide = new GoogleAuthProvider();
 
     const googleSignIn = () => {
+        setIsloading(true)
         return signInWithPopup(auth, googleProvide)
     }
     const logOutUser = () => {
+        setIsloading(true)
         signOut(auth).then(() => {
             setUser({});
             setError('')
         }).catch((error) => {
             const errMsg = error.message;
             setError(`${errMsg}`)
-        });
+        }).finally(() => setIsloading(false))
     }
     const createUserWithEmailPassword = () => {
         createUserWithEmailAndPassword(auth, email, password)
@@ -69,8 +72,9 @@ const useFireBase = () => {
             if (user) {
                 setUser(user);
             } else {
-                setError('Something went wrong in your login authentication')
+                
             }
+            setIsloading(false)
         });
     }, [])
 
@@ -83,7 +87,9 @@ const useFireBase = () => {
         setEmail,
         setPassword,
         loginWithEmailPassword,
-        setName
+        setName,
+        isLoading,
+        setIsloading
 
     }
 }

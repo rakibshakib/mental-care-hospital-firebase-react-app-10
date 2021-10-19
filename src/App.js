@@ -13,6 +13,9 @@ import LoginUser from './components/LoginUser/LoginUser'
 import RegisterUser from './components/RegisterUser/RegisterUser';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute'
 import Booking from './components/Booking/Booking';
+import Footer from './components/Footer/Footer';
+import AboutUS from './components/AboutUS/AboutUS';
+import Contact from './components/Contact/Contact';
 
 function App() {
   return (
@@ -33,6 +36,12 @@ function App() {
             <Route exact path='/login'>
               <LoginUser />
             </Route>
+            <Route exact path='/about'>
+              <AboutUS/>
+            </Route>
+            <Route exact path='/contact'>
+              <Contact/>
+            </Route>
             <PrivateRoute exact path='/booking'>
               <Booking/>
             </PrivateRoute>
@@ -42,8 +51,8 @@ function App() {
             <Route path='*'>
               <NotFound />
             </Route>
-
           </Switch>
+          <Footer/>
         </Router>
       </AuthProvider>
     </div>

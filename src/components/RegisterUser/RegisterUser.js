@@ -5,16 +5,24 @@ import useAuth from '../../hooks/useAuth';
 
 const RegisterUser = () => {
     // user registration from usehook data
-    const { googleSignIn, setName, setEmail, setPassword, createUserWithEmailPassword, error } = useAuth();
+    const { googleSignIn, setName, setEmail, setPassword, createUserWithEmailPassword, error, setUser, setError } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home'
 // redirect user to the page from where he comes after login 
     const handleGoogleLogin = () => {
         googleSignIn()
-            .then((result) => {
-                history.push(redirect_uri)
-            })
+        .then((result) => {
+            const user = result.user;
+            setUser(user);
+            history.push(redirect_uri)
+            setError('')
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setError(`${errorCode} - ${errorMessage}`)
+        })
     }
     const userEmailHandeler = e => {
         setEmail(e.target.value)
@@ -44,7 +52,7 @@ const RegisterUser = () => {
                 <button onClick={handleGoogleLogin} className='cursor-pointer flex flex-row justify-between items-center my-5 border-2 rounded-md py-2 px-5'><FcGoogle /> <span className='ml-2'>Register With Google</span></button>
             </div>
 
-            <p className='text-center text-red-600'>{error}</p>
+            <p className='text-center text-blue-600'>{error}</p>
         </div>
     )
 }

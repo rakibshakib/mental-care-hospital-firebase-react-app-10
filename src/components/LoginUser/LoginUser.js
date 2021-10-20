@@ -6,7 +6,7 @@ import useAuth from '../../hooks/useAuth';
 const LoginUser = () => {
     // yes this is the login section component 
     // get all login option from hooks 
-    const { googleSignIn, setEmail, setIsloading, setPassword, loginWithEmailPassword, error } = useAuth();
+    const { googleSignIn, setEmail, setIsloading, setPassword, loginWithEmailPassword, error, setUser, setError } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home' // condition route setting 
@@ -15,7 +15,15 @@ const LoginUser = () => {
     const handleGoogleLogin = () => {
         googleSignIn()
             .then((result) => {
+                const user = result.user;
+                setUser(user);
                 history.push(redirect_uri)
+                setError('')
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setError(`${errorCode} - ${errorMessage}`)
             }).finally(() => setIsloading(false))
     }
     // get email and password 
@@ -28,7 +36,18 @@ const LoginUser = () => {
     // login with email and password handeler 
     const emailPasswordloginHandeler = e => {
         e.preventDefault()
-        loginWithEmailPassword() 
+        loginWithEmailPassword().then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            setUser(user);
+            history.push(redirect_uri)
+            setError('')
+        })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setError(`${errorCode} - ${errorMessage}`)
+            });
     }
     return (
         <div className='my-8 border-2 md:w-3/4 mx-auto p-5'>
@@ -43,7 +62,7 @@ const LoginUser = () => {
                 <p>----------Or-----------</p>
                 <button onClick={handleGoogleLogin} className='cursor-pointer flex flex-row justify-between items-center my-5 border-2 rounded-md py-2 px-5'> <FcGoogle /> <span className='ml-2'>Login With Google</span></button>
             </div>
-            <p className='text-center text-red-600'>{error}</p>
+            <p className='text-center text-blue-600'>{error}</p>
         </div>
     )
 }

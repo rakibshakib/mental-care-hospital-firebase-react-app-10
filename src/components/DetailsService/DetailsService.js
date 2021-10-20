@@ -5,10 +5,14 @@ import ServiceData from '../../Data/serviceData.json';
 import BackToHome from '../BackBtn/BackToHome'
 
 const DetailsService = () => {
+
     const hospitalData = ServiceData
     const { id } = useParams();
     // find the data form dynamik url route
-    const dataDetails = hospitalData.find(item => item.id === parseInt(id));
+    const dataDetails = hospitalData.find(item => item.id === parseInt(id)); 
+           
+
+
     const { name, image, description, effectiveness, available_day } = dataDetails;
 
     return (
